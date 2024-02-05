@@ -7,7 +7,7 @@ import Menu from "./nav";
 
 export default function Header() {
   return (
-    <header className="flex justify-between items-center mt-2  border-b h-20">
+    <header className="flex justify-between items-center mt-2 mb-8  border-b h-20">
       <Link href="/">
         <Image
           src="/logo.png"
