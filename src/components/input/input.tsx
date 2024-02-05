@@ -8,7 +8,7 @@ export default function Input({ type, id, placeholder }: InputProps) {
     <div className="space-y-1 group relative">
       <Label
         htmlFor={id}
-        className=" ml-3 opacity-0 absolute text-blue-500 text-xs top-0 group-focus-within:opacity-100 group-focus-within:-translate-y-[20px] transition-all duration-300"
+        className="z-50 bg-white px-2 ml-3 opacity-0 absolute text-blue-500 text-xs top-0 group-focus-within:opacity-100 group-focus-within:-translate-y-[7px] transition-all"
       >
         {placeholder}
       </Label>
