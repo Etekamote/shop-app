@@ -14,7 +14,7 @@ export default function Input({ type, id, placeholder }: InputProps) {
       </Label>
       <ShadcnInput
         type={type}
-        className="focus:placeholder:text-transparent"
+        className="focus:placeholder:text-transparent focus:border-blue-500"
         id={id}
         placeholder={placeholder}
       />

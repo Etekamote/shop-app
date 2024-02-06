@@ -19,7 +19,7 @@ export default function Menu() {
         </Link>
         <Link
           href="/sign-up"
-          className={cn("w-24", buttonVariants({ variant: "default" }))}
+          className={cn("w-24", buttonVariants({ variant: "blue" }))}
         >
           Sign up
         </Link>
