@@ -10,7 +10,6 @@ export default function Menu() {
       <ul className="space-y-8 flex flex-col md:flex-row md:space-y-0 md:items-center md:gap-x-8">
         <NavItem path="/">Home</NavItem>
         <NavItem path="/products">Store</NavItem>
-        <NavItem path="/contact">Contact</NavItem>
         <Link
           href="/sign-in"
           className={cn("w-24", buttonVariants({ variant: "outline" }))}
