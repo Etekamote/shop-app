@@ -4,6 +4,7 @@ import ProductContent from "../_components/product-content";
 import { notFound } from "next/navigation";
 import Reviews from "../_components/reviews";
 import AddReview from "../_components/add-review";
+import { getImages, getProduct } from "@/lib/utils";
 
 type ProductPageProps = {
   params: {
@@ -11,9 +12,10 @@ type ProductPageProps = {
   };
 };
 
-export default function ProductPage({ params }: ProductPageProps) {
+export default async function ProductPage({ params }: ProductPageProps) {
   const id = params.id;
-  const product = products.find((product) => product.id === Number(id));
+  const product = await getProduct(Number(id));
+  const images = await getImages(Number(id));
 
   if (!product) {
     notFound();
@@ -22,17 +24,18 @@ export default function ProductPage({ params }: ProductPageProps) {
   return (
     <main className="space-y-8">
       <section className="flex flex-col gap-y-10 lg:flex-row lg:gap-y-0 lg:justify-between">
-        <Images img1={product.img1} img2={product.img2} />
+        <Images img1={images[0].image} img2={images[1].image} />
         <ProductContent
           name={product.name}
-          description={product.description}
+          description={product.description || ""}
           price={product.price}
           stock={product.stock}
         />
       </section>
       <Reviews
         id={product.id}
-        avgRating={product.ratingTotal / product.reviewsCount}
+        rating={product.rating}
+        reviews={product.reviews}
       />
       <AddReview />
     </main>

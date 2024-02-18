@@ -1,13 +1,14 @@
-import { reviews } from "@/lib/constants";
+import { getReviews } from "@/lib/utils";
 import Review from "./review";
 
 type ReviewsProps = {
   id: number;
-  avgRating: number;
+  rating: number;
+  reviews: number;
 };
 
-export default function Reviews({ id, avgRating }: ReviewsProps) {
-  const productReviews = reviews.filter((review) => review.productId === id);
+export default async function Reviews({ id, rating, reviews }: ReviewsProps) {
+  const productReviews = await getReviews(Number(id));
 
   if (productReviews.length === 0) {
     return <div>No reviews yet</div>;
@@ -19,7 +20,7 @@ export default function Reviews({ id, avgRating }: ReviewsProps) {
         <h2 className="font-bold">Reviews ({productReviews.length})</h2>
         <p>
           <span className="font-bold text-blue-500">
-            {avgRating.toFixed(2)}
+            {reviews == 0 ? 0 : rating / reviews}
           </span>
           /5.00
         </p>

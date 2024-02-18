@@ -23,3 +23,44 @@ export const getUser = async (email = "") => {
   });
   return user;
 };
+
+export const getProducts = async () => {
+  const products = await prisma.products.findMany();
+  return products;
+};
+
+export const getProduct = async (id: number) => {
+  const product = await prisma.products.findUnique({
+    where: {
+      id: id,
+    },
+  });
+  return product;
+};
+
+export const getImages = async (productId: number) => {
+  const images = await prisma.productsImages.findMany({
+    where: {
+      productId: productId,
+    },
+  });
+  return images;
+};
+
+export const getImage = async (productId: number) => {
+  const image = await prisma.productsImages.findMany({
+    where: {
+      productId: productId,
+    },
+  });
+  return image[0];
+};
+
+export const getReviews = async (productId: number) => {
+  const reviews = await prisma.reviews.findMany({
+    where: {
+      productId: productId,
+    },
+  });
+  return reviews;
+};
