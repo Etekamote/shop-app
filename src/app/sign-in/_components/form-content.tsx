@@ -1,6 +1,7 @@
+"use client";
 import { Button } from "@/components/ui/button";
 
-import Input from "@/components/form/input";
+import Input from "../_components/input";
 import { InputT } from "@/lib/types";
 
 type FormContentProps = {

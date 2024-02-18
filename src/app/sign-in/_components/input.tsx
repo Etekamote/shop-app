@@ -1,8 +1,9 @@
 import { Label } from "@/components/ui/label";
 import { Input as ShadcnInput } from "@/components/ui/input";
+import { UseFormRegister } from "react-hook-form";
+import { RegisterFormInputsT } from "@/lib/types";
 
 type InputProps = React.ComponentPropsWithoutRef<"input">;
-
 export default function Input({ type, id, placeholder }: InputProps) {
   return (
     <div className="space-y-1 group relative">
